@@ -31,7 +31,7 @@ DynaBCE is dynamic ensemble algorithm to effectively identify conformational B-c
         GHECOM https://pdbj.org/ghecom/      
         TM-align https://zhanggroup.org/TM-align/   
         NW-align https://zhanggroup.org/NW-align/      
-   Manually download and install the third-party software listed above. Please place all softwares in the 'DynaBCE/software' directory.
+   Manually download and install the third-party software listed above. Please place all softwares in the `DynaBCE/software` directory.
    
 4. Download database and pre-trained models
    BCE633 dataset and
@@ -42,7 +42,7 @@ Please note that change the paths of these softwares and related databases at ar
 
 ## Run DynaBCE model 
 1. Prepare input PDB file.
-   Each input file should be saved in a separate PDB file named 'protein_chain.pdb'. 
+   Each input file should be saved in a separate PDB file named `protein_chain.pdb`. 
    
 2. Prepare hand structures  
    Due to PSAIA software
