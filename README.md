@@ -25,12 +25,12 @@ DynaBCE is dynamic ensemble algorithm to effectively identify conformational B-c
     conda env create -f environment.yaml  
     conda activate DynaBCE
    ```
-    ** Third-party software
+    ** Third-party software        
         DSSP https://swift.cmbi.umcn.nl/gv/dssp/    
-        PSAIA https://psaia.software.informer.com/download/
-        GHECOM https://pdbj.org/ghecom/  
-        TM-align https://zhanggroup.org/TM-align/  
-        NW-align https://zhanggroup.org/NW-align/     
+        PSAIA https://psaia.software.informer.com/download/           
+        GHECOM https://pdbj.org/ghecom/      
+        TM-align https://zhanggroup.org/TM-align/   
+        NW-align https://zhanggroup.org/NW-align/      
    Manually download and install the third-party software listed above. Please place all softwares in the 'DynaBCE/software' directory.
    
 4. Download database and pre-trained models
