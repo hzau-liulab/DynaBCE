@@ -5,10 +5,11 @@
 # Usage
 ## Installation 
 1. Clone the repository to your local device.
-    git clone https://github.com/hzau-liulab/DynaBCE
+   
+    git clone https://github.com/hzau-liulab/DynaBCE   
     cd DynaBCE
    
-3. Install the necessary dependencies.
+2. Install the necessary dependencies.
    * Python packages
         python  3.9.17   
         Numpy  1.25.0    
