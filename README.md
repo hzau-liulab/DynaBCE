@@ -19,7 +19,7 @@ DynaBCE is dynamic ensemble algorithm to effectively identify conformational B-c
         cdhit-reader  0.1.1     
         fair-esm  2.0.0     
         pytorch  1.12.1     
-        pyg  2.3.1
+        pyg  2.3.1     
    We recommend creating a new conda environment for DynaBCE, and then install the required packages within this environment.
    ```shell
     conda env create -f environment.yaml  
@@ -30,12 +30,12 @@ DynaBCE is dynamic ensemble algorithm to effectively identify conformational B-c
         PSAIA https://psaia.software.informer.com/download/
         GHECOM https://pdbj.org/ghecom/  
         TM-align https://zhanggroup.org/TM-align/  
-        NW-align https://zhanggroup.org/NW-align/
+        NW-align https://zhanggroup.org/NW-align/     
    Manually download and install the third-party software listed above. Please place all softwares in the 'DynaBCE/software' directory.
    
 4. Download database and pre-trained models
    BCE633 dataset and
-   Manually created template library [Google Drive](https://drive.google.com/file/d/1z1xSP5U5GkCvLTmrMAnlxp8qUMspBr9y/view?usp=sharing)
+   Manually created template library [Google Drive](https://drive.google.com/file/d/1z1xSP5U5GkCvLTmrMAnlxp8qUMspBr9y/view?usp=sharing)      
    Our pre-trained models can be found at [Google Drive](https://drive.google.com/file/d/1z1xSP5U5GkCvLTmrMAnlxp8qUMspBr9y/view?usp=sharing)
 
 Please note that change the paths of these softwares and related databases at arg_parse.py 
