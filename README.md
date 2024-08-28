@@ -20,11 +20,11 @@ Numpy  1.25.0
 Pandas  1.2.0   
 Biopython  1.76    
 Scipy  1.10.1  
-cdhit-reader  0.1.1
-fair-esm  2.0.0
-pytorch  1.12.1
-pyg  2.3.1
-GraphRicciCurvature  0.5.3.1
+cdhit-reader  0.1.1     
+fair-esm  2.0.0     
+pytorch  1.12.1     
+pyg  2.3.1    
+GraphRicciCurvature  0.5.3.1    
 
 # Usage
 ## 1. Download pre-trained models
