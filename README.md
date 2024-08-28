@@ -38,21 +38,21 @@ DynaBCE is dynamic ensemble algorithm to effectively identify conformational B-c
    
    Manually download and install the third-party software listed above. Please place all softwares in the `./software` directory.
    
-4. Download database and pre-trained models
+4. Download database and pre-trained models        
    BCE633 dataset and
    Manually created template library [Google Drive](https://drive.google.com/file/d/1z1xSP5U5GkCvLTmrMAnlxp8qUMspBr9y/view?usp=sharing)      
    Our pre-trained models can be found at [Google Drive](https://drive.google.com/file/d/1z1xSP5U5GkCvLTmrMAnlxp8qUMspBr9y/view?usp=sharing)
 
 Please note that change the paths of these softwares and related databases at arg_parse.py 
 
-## Run DynaBCE model 
-1. Prepare input PDB file.
+## Run DynaBCE model  
+1. Prepare input PDB file.      
    Each input file should be saved in a separate PDB file named `protein_chain.pdb`. 
    
-2. Prepare hand structures  
+2. Prepare hand structures.   
    Due to PSAIA software,  . Please place this feature in the `./features/STR_feature/DP` directory.
 
-3. Run the prediction  
+3. Run the prediction   
    Run the following command:  
    
        python DynaBCE_model.py --pdb ./data/BCE633/7zyi_A.pdb --outdir ./output --test True
