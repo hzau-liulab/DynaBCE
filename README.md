@@ -9,7 +9,7 @@ DynaBCE is dynamic ensemble algorithm to effectively identify conformational B-c
     git clone https://github.com/hzau-liulab/DynaBCE   
     cd DynaBCE
    ```
-2. Install the necessary dependencies.
+2. Install the necessary dependencies.     
    ** Python packages
         python                3.9.17    
         Numpy                 1.26.4     
