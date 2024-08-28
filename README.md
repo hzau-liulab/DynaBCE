@@ -55,7 +55,7 @@ Please note that change the paths of these softwares and related databases at ar
 3. Run the prediction   
    Run the following command:  
    
-       python DynaBCE_model.py --pdb ./data/BCE633/7zyi_A.pdb --outdir ./output --test True
+       python DynaBCE_model.py --pdb ./data/BCE633/7zyi_A.pdb --fasta_path ./data/BCE633_fasta --ghecom ./software/ghecom/ghecom --dssp ./software/mkdssp --esm_path ./esm_model --tmalign ./software/TMalign --nwalign ./software/NWalign --tm_library ./data  --modules_path ./modules --output_path ./output --test True
    
    Type -h for help information:
    
