@@ -5,10 +5,10 @@ DynaBCE is dynamic ensemble algorithm to effectively identify conformational B-c
 # Usage
 ## Installation 
 1. Clone the repository to your local device.
-   
+   ```shell
     git clone https://github.com/hzau-liulab/DynaBCE   
     cd DynaBCE
-   
+   ```
 2. Install the necessary dependencies.
    * Python packages
         python  3.9.17   
@@ -21,7 +21,7 @@ DynaBCE is dynamic ensemble algorithm to effectively identify conformational B-c
         pytorch  1.12.1     
         pyg  2.3.1
     * Third-party software
-        DSSP https://swift.cmbi.umcn.nl/gv/dssp/
+        DSSP https://swift.cmbi.umcn.nl/gv/dssp/    
         PSAIA https://psaia.software.informer.com/download/
         GHECOM https://pdbj.org/ghecom/  
         TM-align https://zhanggroup.org/TM-align/  
