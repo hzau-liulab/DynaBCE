@@ -1,5 +1,5 @@
 # Description
-DynaBCE is dynamic ensemble algorithm to effectively identify conformational B-cell epitopes by leveraging feature- and template-based methods.  
+DynaBCE is dynamic ensemble algorithm to effectively identify conformational B-cell epitopes by leveraging feature- and template-based methods. Using novel handcrafted structural descriptors and embeddings from protein language models, we developed machine learning and deep learning modules based on boosting algorithms and geometric graph neural networks, respectively. Furthermore, we built a template module by leveraging known structural template information and transformer-based algorithms to capture binding signatures. The three modules were integrated by a dynamic weighted ensemble strategy to fully explore the strengths of each module for different samples. 
 ![image](img/Framework.png)  
 
 # Third-party software
