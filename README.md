@@ -11,15 +11,19 @@ DynaBCE is dynamic ensemble algorithm to effectively identify conformational B-c
    ```
 2. Install the necessary dependencies.
    ** Python packages
-        python  3.9.17   
-        Numpy  1.25.0    
-        Pandas  1.2.0   
-        Biopython  1.76    
-        Scipy  1.10.1  
-        cdhit-reader  0.1.1     
-        fair-esm  2.0.0     
-        pytorch  1.12.1     
-        pyg  2.3.1     
+        python                3.9.17    
+        Numpy                 1.26.4     
+        Pandas                2.1.2    
+        Biopython             1.79     
+        Scipy                 1.11.4      
+        fair-esm              2.0.1      
+        pytorch               1.12.1    
+        vit-pytorch           1.6.4     
+        pyg                   2.3.1      
+        scikit-learn          1.3.2    
+        GraphRicciCurvature   0.5.3.1 
+
+     
    We recommend creating a new conda environment for DynaBCE, and then install the required packages within this environment.
    ```shell
     conda env create -f environment.yaml  
@@ -30,8 +34,9 @@ DynaBCE is dynamic ensemble algorithm to effectively identify conformational B-c
         PSAIA https://psaia.software.informer.com/download/           
         GHECOM https://pdbj.org/ghecom/      
         TM-align https://zhanggroup.org/TM-align/   
-        NW-align https://zhanggroup.org/NW-align/      
-   Manually download and install the third-party software listed above. Please place all softwares in the `DynaBCE/software` directory.
+        NW-align https://zhanggroup.org/NW-align/
+   
+   Manually download and install the third-party software listed above. Please place all softwares in the `./software` directory.
    
 4. Download database and pre-trained models
    BCE633 dataset and
@@ -45,7 +50,7 @@ Please note that change the paths of these softwares and related databases at ar
    Each input file should be saved in a separate PDB file named `protein_chain.pdb`. 
    
 2. Prepare hand structures  
-   Due to PSAIA software
+   Due to PSAIA software,  . Please place this feature in the `./features/STR_feature/DP` directory.
 
 3. Run the prediction  
    Run the following command:  
