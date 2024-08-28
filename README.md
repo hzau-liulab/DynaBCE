@@ -11,7 +11,7 @@ DSSP https://swift.cmbi.umcn.nl/gv/dssp/DSSP_5.html
 NACCESS http://www.bioinf.manchester.ac.uk/naccess/  
 
 # Database requirement
-BCE633 dataset 
+BCE633 dataset and
 Manually created template library [Google Drive](https://drive.google.com/file/d/1z1xSP5U5GkCvLTmrMAnlxp8qUMspBr9y/view?usp=sharing)
 
 # Important python packages
