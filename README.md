@@ -32,7 +32,7 @@ DynaBCE is dynamic ensemble algorithm to effectively identify conformational B-c
         TM-align https://zhanggroup.org/TM-align/  
         NW-align https://zhanggroup.org/NW-align/
    Manually download and install the third-party software listed above. Please place all softwares in the 'DynaBCE/software' directory.
-
+   
 4. Download database and pre-trained models
    BCE633 dataset and
    Manually created template library [Google Drive](https://drive.google.com/file/d/1z1xSP5U5GkCvLTmrMAnlxp8qUMspBr9y/view?usp=sharing)
@@ -48,13 +48,13 @@ Please note that change the paths of these softwares and related databases at ar
    Due to PSAIA software
 
 3. Run the prediction  
-Run the following command:  
-
-    python DynaBCE_model.py --pdb ./data/BCE633/7zyi_A.pdb --outdir ./output --test True
-
-Type -h for help information:
-
-    python DynaBCE_model.py -h
+   Run the following command:  
+   
+       python DynaBCE_model.py --pdb ./data/BCE633/7zyi_A.pdb --outdir ./output --test True
+   
+   Type -h for help information:
+   
+       python DynaBCE_model.py -h
 
 # Citation
 Dynamic integration of feature- and template-based methods improves the prediction of conformational B-cell epitopes. *Submitted*, 2024.
