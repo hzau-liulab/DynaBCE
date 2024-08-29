@@ -10,7 +10,7 @@ DynaBCE is dynamic ensemble algorithm to effectively identify conformational B-c
     cd DynaBCE
    ```
 2. Install the necessary dependencies.     
-   ** Python packages
+   ** Python packages         
         python                3.9.17    
         Numpy                 1.26.4     
         Pandas                2.1.2    
@@ -24,7 +24,7 @@ DynaBCE is dynamic ensemble algorithm to effectively identify conformational B-c
         GraphRicciCurvature   0.5.3.1 
 
      
-   We recommend creating a new conda environment for DynaBCE, and then install the required packages within this environment.
+   We recommend creating a new conda environment for DynaBCE, and then install the required packages within this environment.          
    ```shell
     conda env create -f environment.yaml  
     conda activate DynaBCE
