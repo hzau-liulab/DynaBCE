@@ -1,4 +1,5 @@
 import esm
+import torch
 from DynaBCE.utils.pdb_utils import *
 from DynaBCE.arg_parse import *
 
