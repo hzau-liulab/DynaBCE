@@ -56,7 +56,7 @@ Please place the relevant databases in the `./data` directory. Pre-trained model
 3. Run the prediction    
    Run the following command:   
    
-       python DynaBCE_model.py --pdb ./data/BCE633/7zyi_A.pdb --fasta_path ./data/BCE633_fasta --ghecom ./software/ghecom/ghecom --dssp ./software/mkdssp --esm_path ./esm_model --tmalign ./software/TMalign --nwalign ./software/NWalign --tm_library ./data  --modules_path ./modules --output_path ./output --test True
+       python DynaBCE_model.py --pdb ./data/BCE633/7zyi_A.pdb --fasta_path ./data/BCE633_fasta --ghecom ./software/ghecom --dssp ./software/mkdssp --esm_path ./esm_model --tmalign ./software/TMalign --nwalign ./software/NWalign --tm_library ./data  --modules_path ./modules --output_path ./output --test True
    
    Type -h for help information:         
    
