@@ -3,6 +3,7 @@ import os
 proj_dir = os.path.dirname(os.path.dirname(__file__))
 sys.path.append(proj_dir)
 from utils.model_utils import *
+from arg_parse import *
 
 
 def loop(args, model, ml_model, pc_list, ag_ab, scaler, device, optimizer=None):
@@ -71,7 +72,7 @@ def model_test(args, pc, ml_models, dl_models, tm_models, ag_ab, scaler, device,
     predicted_mean = np.where(probas_mean > cutoff, 1, 0)
     # pc_result = cal_metrics(predicted_mean, pc_label, probas_mean)
     # with open(f'{args.output_path}/DynaBCE_output.txt', 'a') as file0:
-    #     print(f'===========  TR_test result, best_cutoff = {cutoff}  prob_mean  ===========\n'
+    #     print(f'===========  Test result, best_cutoff = {cutoff}  prob_mean  ===========\n'
     #           f'Recall: {result[0]}, Precision: {result[1]}, F1: {result[2]}, '
     #           f'AUC: {result[3]}, AUPR: {result[4]}, MCC: {result[5]}\n', file=file0)
     return np.hstack((predicted_mean.astype(int), probas_mean)), pc_info
