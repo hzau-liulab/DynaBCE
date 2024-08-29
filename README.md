@@ -39,13 +39,12 @@ DynaBCE is dynamic ensemble algorithm to effectively identify conformational B-c
    Manually download and install the third-party software listed above. Please place all softwares in the `./software` directory.
    
 4. Download database and pre-trained models        
-   BCE633 dataset and
-   Manually created template library [Dataset](https://drive.google.com/file/d/1z1xSP5U5GkCvLTmrMAnlxp8qUMspBr9y/view?usp=sharing)      
+   BCE633 dataset and Manually created template library [Dataset](https://drive.google.com/file/d/1z1xSP5U5GkCvLTmrMAnlxp8qUMspBr9y/view?usp=sharing)      
    Our pre-trained models can be found at [DynaBCE model](https://drive.google.com/file/d/1z1xSP5U5GkCvLTmrMAnlxp8qUMspBr9y/view?usp=sharing)         
    ESM-2 [esm2_t33_650M_UR50D](https://dl.fbaipublicfiles.com/fair-esm/models/esm2_t33_650M_UR50D.pt)        
    ESM-IF1 [esm_if1_gvp4_t16_142M_UR50](https://dl.fbaipublicfiles.com/fair-esm/models/esm2_t33_650M_UR50D.pt)            
 
-Please note that change the paths of these softwares and related databases at arg_parse.py 
+Please place the relevant databases in the `./data` directory. Pre-trained models should be placed in the `./modules` directory. ESM-2 and ESM-IF1 should be placed in the `./esm_model` directory. Alternatively, you can change the relevant paths in `arg_parse.py.`
 
 ## Run DynaBCE model  
 1. Prepare input PDB file.      
