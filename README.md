@@ -42,7 +42,7 @@ DynaBCE is dynamic ensemble algorithm to effectively identify conformational B-c
    BCE633 dataset and
    Manually created template library [Google Drive](https://drive.google.com/file/d/1z1xSP5U5GkCvLTmrMAnlxp8qUMspBr9y/view?usp=sharing)      
    Our pre-trained models can be found at [Google Drive](https://drive.google.com/file/d/1z1xSP5U5GkCvLTmrMAnlxp8qUMspBr9y/view?usp=sharing)         
-   esm2        
+   ESM-2 [esm2_t33_650M_UR50D.pt](https://dl.fbaipublicfiles.com/fair-esm/models/esm2_t33_650M_UR50D.pt)       
    esm-IF1        
 
    
