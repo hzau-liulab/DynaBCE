@@ -31,7 +31,7 @@ DynaBCE is dynamic ensemble algorithm to effectively identify conformational B-c
    ```
     ** Third-party software        
         DSSP https://swift.cmbi.umcn.nl/gv/dssp/    
-        PSAIA https://psaia.software.informer.com/download/           
+        PSAIA https://static-content.springer.com/esm/art%3A10.1186%2F1472-6807-8-21/MediaObjects/12900_2007_186_MOESM20_ESM.bin        
         GHECOM https://pdbj.org/ghecom/      
         TM-align https://zhanggroup.org/TM-align/   
         NW-align https://zhanggroup.org/NW-align/
