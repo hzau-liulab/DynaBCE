@@ -28,12 +28,12 @@ def TMalign(args, q_pdb, tm_pdb):
 
 def topk_tm_search(args, pdbfile, pc, nw_cut=0.7, k=6):
     p = joblib.Parallel(n_jobs=-1)
-    pc_idts = p(joblib.delayed(NWalign)(f'{args.fasta_path}/{pc}.fasta', f'{args.tm_library}/TM_library_fasta/{tm}')
+    pc_idts = p(joblib.delayed(NWalign)(args, f'{args.fasta_path}/{pc}.fasta', f'{args.tm_library}/TM_library_fasta/{tm}')
                 for tm in os.listdir(f'{args.tm_library}/TM_library_fasta/'))
     pc_idts = list(filter(lambda x: x[1] <= nw_cut, pc_idts))
 
     p = joblib.Parallel(n_jobs=-1)
-    pc_tm_idts = p(joblib.delayed(TMalign)(pdbfile, f'{args.tm_library}/TM_library_pdb/{tm}')
+    pc_tm_idts = p(joblib.delayed(TMalign)(args, pdbfile, f'{args.tm_library}/TM_library_pdb/{tm}')
                    for tm, nw_idt in pc_idts)
     sorted_pc_tm_idts = sorted(pc_tm_idts, key=lambda x: x[1][0], reverse=True)[:k]
     topk_tm = [(x[0], x[1][0]) for x in sorted_pc_tm_idts]
