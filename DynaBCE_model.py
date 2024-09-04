@@ -14,17 +14,28 @@ def loop(args, model, ml_model, pc_list, ag_ab, scaler, device, optimizer=None):
             form_batch(args, batch_pc, ag_ab, scaler)
         ml_output = get_ml_output(ml_model, ml_batch)
         probas, expert_outputs, weights = model(dl_batch, tm_batch, gating_input, ml_output, device)
-        loss = loss_fnc(probas, expert_outputs, batch_label.to(device), weights)
+
         if optimizer:
+            loss = loss_fnc(probas, expert_outputs, batch_label.to(device), weights)
             optimizer.zero_grad()
             loss.backward()
             optimizer.step()
-        total_loss.append(loss.item())
+            total_loss.append(loss.item())
+            total_loss = round(np.mean(total_loss), 4)
+
+        if batch_label is not None:
+            all_label.append(batch_label.reshape(-1, 1))
+
         probas = probas.detach().cpu().numpy()
         all_probas.append(probas.reshape(-1, 1))
-        all_label.append(batch_label.reshape(-1, 1))
         pc_info.append(batch_res_type_id)
-    return np.vstack(all_label), np.vstack(all_probas), round(np.mean(total_loss), 4), np.vstack(pc_info)
+
+    avg_loss = round(np.mean(total_loss), 4) if total_loss else 0
+    all_label = np.vstack(all_label) if all_label else None
+    all_probas = np.vstack(all_probas) if all_probas else None
+    pc_info = np.vstack(pc_info) if pc_info else None
+
+    return all_label, all_probas, avg_loss, pc_info
 
 
 def model_train(args, ml_models, dl_models, tm_models, ag_ab, scaler, device):
