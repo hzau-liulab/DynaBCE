@@ -87,25 +87,30 @@ def load_fold_model(ml_models, dl_models, tm_models, fold, device):
 def form_batch(args, pc_list, ag_ab, scaler):
     ml_input, dl_input, tm_input, best_tm_input, label_list, res_type_id = [], [], [], [], [], []
     for i, pc in enumerate(pc_list):
-        if args.test:
-            pc_label = []
-        else:
+        label_file = f'{args.label_path}/{pc}.txt'
+        if os.path.exists(label_file):
             pc_label = np.loadtxt(f'{args.label_path}/{pc}.txt', dtype=object)
+            label_list.extend(pc_label[1:, 3].astype(int))
+
         pc_ml_input, pc_dl_input, pc_tm_input, pc_best_tm_feat, pc_res_type_id = \
             get_scaler_inputs(args, pc, ag_ab, scaler)
+
         ml_input.append(pc_ml_input)
         dl_input.append(pc_dl_input)
         tm_input.append(pc_tm_input)
         best_tm_input.append(pc_best_tm_feat)
-        label_list.extend(pc_label[1:, 3].astype(int))
         res_type_id.append(pc_res_type_id)
+
     ml_batch = np.hstack(ml_input)
     dl_batch = Batch.from_data_list(dl_input)
     tm_batch = torch.cat(tm_input).unsqueeze(dim=2)
+
     best_tm_input = torch.cat(best_tm_input, dim=1)
     gating_input = torch.cat((best_tm_input, torch.tensor(ml_batch, dtype=torch.float32)), dim=1)
-    batch_label = torch.tensor(label_list, dtype=torch.float32)
+
+    batch_label = torch.tensor(label_list, dtype=torch.float32) if label_list else None
     batch_res_type_id = np.hstack(res_type_id)
+
     return ml_batch, dl_batch, tm_batch, gating_input, batch_label, batch_res_type_id
 
 
