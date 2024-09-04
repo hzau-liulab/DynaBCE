@@ -4,7 +4,7 @@ from GraphRicciCurvature.FormanRicci import FormanRicci
 from DynaBCE.utils.pdb_utils import *
 import scipy.stats as stats
 import glob
-import esm
+import torch
 import esm.inverse_folding
 
 
@@ -20,7 +20,7 @@ class ESMIF_feat(PDBfuc):
         self.model, self.alphabet = self.load_model()
 
     def load_model(self):
-        # torch.hub.set_dir(self.model_path)
+        torch.hub.set_dir(self.model_path)
         model, alphabet = esm.pretrained.esm_if1_gvp4_t16_142M_UR50()
         model = model.eval()
         return model, alphabet
@@ -40,7 +40,6 @@ class RASA_feat(PDBfuc):
         self.res_max_asa = max_asa
         self.pc = pc
         self.pdbfile = pdbfile
-        # self.dssp(pc, pdbfile)
 
     def dssp(self, pc, pdbfile=None):
         """
@@ -81,7 +80,6 @@ class DP_feat(PDBfuc):
         self.psaexe = psaexe
         self.pc = pc
         self.pdbfile = pdbfile
-        # self.psa(pc, pdbfile)
 
     def config_set(self):
         config_path = f"{self.psaexe}/Examples/psa.cfg"
@@ -151,7 +149,6 @@ class GE_feat(PDBfuc):
         self.ghecomexe = ghecomexe
         self.pc = pc
         self.pdbfile = pdbfile
-        # self.ghecom(pc, pdbfile)
 
     def ghecom(self, pc, pdbfile=None):
         """
