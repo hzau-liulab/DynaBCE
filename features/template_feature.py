@@ -93,7 +93,7 @@ def rotation_structure(args, pdbfile, pdb_fuc, tm):
         with tempfile.NamedTemporaryFile(mode='w+', delete=False, suffix='.pdb') as temp_file:
             atom_index = 0
             for line in open(original_pdb_file, 'r'):
-                if line.startswith(('ATOM', 'HETATM')):
+                if line.startswith(('ATOM', 'HETATM')) and line.strip().split()[-1] != 'H':
                     x, y, z = new_coords[atom_index]
                     atom_index += 1
                     temp_file.write(f"{line[:30]}{x:8.3f}{y:8.3f}{z:8.3f}{line[54:]}")
