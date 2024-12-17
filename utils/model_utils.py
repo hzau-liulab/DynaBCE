@@ -118,23 +118,28 @@ def get_scaler_inputs(args, pc, ag_ab, scaler):
     # pdbfile = f'{args.tm_library}TM_library_pdb/{tm_pc}.pdb'
     pdbfile = args.pdb
     pdb_fuc = PDBfuc(pdbfile)
-    # with open(f'./data/7zyi_A.pkl', 'rb') as fd:
-    #     ml_input, dl_input, tm_input, best_tm_feat = pickle.load(fd)
-
     res_type_id = np.array(pdb_fuc.res)[:, [0, 2]]
-    esm2_feat, phyche_feat = get_seq_feat(args, pdbfile, pc)
-    esmif, hand_str_feat, res_distmap = get_str_feat(args, pdbfile, pdb_fuc, pc)
-    topk_tm_feat, best_tm_feat = get_template_feat(args, pdbfile, pdb_fuc, pc, ag_ab, scaler)
 
-    phyche_str_feat = np.hstack((phyche_feat, hand_str_feat))
-    phyche_str_feat[:, -25:-5] = scaler.transform(phyche_str_feat[:, -25:-5])
-    scaler_feat = sigmoid(phyche_str_feat)
-
-    ml_input = np.hstack((esm2_feat, esmif, scaler_feat))
-    dl_input = featurize_as_graph(pc, pdb_fuc, res_distmap, ml_input)
-    tm_input = torch.tensor(topk_tm_feat, dtype=torch.float32)
-    best_tm_feat = torch.tensor(best_tm_feat, dtype=torch.float32)
-
+    input_file = f'./data/{pc}.pkl'
+    if os.path.exists(input_file):
+        with open(input_file, 'rb') as fd:
+            ml_input, dl_input, tm_input, best_tm_feat = pickle.load(fd)
+    else:        
+        esm2_feat, phyche_feat = get_seq_feat(args, pdbfile, pc)
+        esmif, hand_str_feat, res_distmap = get_str_feat(args, pdbfile, pdb_fuc, pc)
+        topk_tm_feat, best_tm_feat = get_template_feat(args, pdbfile, pdb_fuc, pc, ag_ab, scaler)
+    
+        phyche_str_feat = np.hstack((phyche_feat, hand_str_feat))
+        phyche_str_feat[:, -25:-5] = scaler.transform(phyche_str_feat[:, -25:-5])
+        scaler_feat = sigmoid(phyche_str_feat)
+    
+        ml_input = np.hstack((esm2_feat, esmif, scaler_feat))
+        dl_input = featurize_as_graph(pc, pdb_fuc, res_distmap, ml_input)
+        tm_input = torch.tensor(topk_tm_feat, dtype=torch.float32)
+        best_tm_feat = torch.tensor(best_tm_feat, dtype=torch.float32)
+        with open(input_file, 'wb') as fd:
+            pickle.dump((ml_input, dl_input, tm_input, best_tm_feat), fd)
+            
     return ml_input, dl_input, tm_input, best_tm_feat, res_type_id
 
 
