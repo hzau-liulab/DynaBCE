@@ -40,7 +40,9 @@ class RASA_feat(PDBfuc):
         self.res_max_asa = max_asa
         self.pc = pc
         self.pdbfile = pdbfile
-
+        if not os.path.exists(dssp_file):
+            self.dssp(pc, pdbfile)
+            
     def dssp(self, pc, pdbfile=None):
         """
         excute dssp program
@@ -48,9 +50,12 @@ class RASA_feat(PDBfuc):
         if pdbfile is not None:
             out_file = f'./features/STR_feature/DSSP/{pc}.dssp'
             if os.path.exists(self.dsspexe):
-                os.system(f'{self.dsspexe} -i {pdbfile} -o {out_file}')
-                self.dssp_file = out_file
-                return
+                result = os.system(f'{self.dsspexe} -i {pdbfile} -o {out_file}')
+                if result == 0 and os.path.exists(out_file):
+                    self.dssp_file = out_file
+                    return
+                else:
+                    print("Error: Failed to execute DSSP or generate output file.")
             else:
                 print("Error: DSSP program is not installed. Please install dssp!")
 
@@ -59,7 +64,6 @@ class RASA_feat(PDBfuc):
         return: str_array col.1=>res col.2=>shellAcc col.3=>Rinacc col.4=>pocketness
         """
         res_rasa = []
-        dssp_file = dssp_file if os.path.exists(dssp_file) else self.dssp(self.pc, self.pdbfile)
         with open(dssp_file, "r") as f:
             lines = f.readlines()
             for i, line in enumerate(lines[28:]):
@@ -69,7 +73,7 @@ class RASA_feat(PDBfuc):
                 res_rasa.append(float(line[34:38].strip()) / self.res_max_asa[aa])
         return np.array(res_rasa).reshape(-1, 1)
 
-    def res_array(self, dssp_file=None):
+    def res_array(self):
         return self.rasa(dssp_file)
 
 
@@ -446,8 +450,9 @@ def get_str_feat(args, pdbfile, pdb_fuc, pc):
     res_distmap, res_contact = pdb_fuc.contact(distmap_type='res', discut=7)
     atom_distmap, atom_contact = pdb_fuc.contact(discut=5)
 
+    dssp_file = f'./features/STR_feature/DSSP/{pc}.dssp'
     rasa_feat = RASA_feat(pdbfile, pc, res_max_asa, args.dssp)
-    rasa = rasa_feat.res_array(f'./features/STR_feature/DSSP/{pc}.dssp')
+    rasa = rasa_feat.res_array()
 
     dp_feat = DP_feat(pdbfile, pc, args.psaia)
     dp = dp_feat.res_array(f'./features/STR_feature/DP/{pc}.tbl')
